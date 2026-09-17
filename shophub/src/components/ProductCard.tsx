@@ -19,6 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         alt={product.title}
         width={200}
         height={200}
+        loading="eager"
       />
 
       <h2>{product.title}</h2>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/Product";
+import { useCart } from "@/context/CartContext";
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -15,7 +16,7 @@ export default function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const [product, setProduct] = useState<Product | null>(null);
-
+  const { addToCart } = useCart();
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -60,6 +61,7 @@ export default function ProductDetailPage({
           alt={product.title}
           width={300}
           height={300}
+          loading="eager"
         />
 
         <div className="mt-4 space-y-2">
@@ -68,6 +70,12 @@ export default function ProductDetailPage({
           <p>Stock: {product.stock}</p>
           <p>{product.description}</p>
         </div>
+        <button
+          onClick={() => addToCart(product)}
+          className="mt-4 rounded bg-black px-4 py-2 text-white"
+        >
+          Agregar al carrito
+        </button>
       </div>
     </main>
   );
