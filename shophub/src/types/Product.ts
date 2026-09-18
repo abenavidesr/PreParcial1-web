@@ -7,4 +7,5 @@ export interface Product {
     thumbnail: string;
     stock: number;
     description?: string;
+    quantityCart?: number;
 }

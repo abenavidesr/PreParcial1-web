@@ -11,6 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { quitarFromCart } = useCart();
 
   return (
     <div className="border rounded-lg p-4">
@@ -33,13 +34,20 @@ export default function ProductCard({ product }: ProductCardProps) {
       >
         Ver detalle
       </Link>
-
-      <button
-        onClick={() => addToCart(product)}
-        className="mt-3 rounded bg-black px-4 py-2 text-white"
-      >
-        Agregar al carrito
-      </button>
+      <div className="mt-2">
+        <button
+          onClick={() => addToCart(product)}
+          className="rounded bg-black px-4 py-2 text-white"
+        >
+          Agregar al carrito
+        </button>
+        <button
+            onClick={() => quitarFromCart(product.id)}
+            className="ml-2 rounded bg-red-500 px-4 py-2 text-white"
+        >
+          Quitar del carrito
+        </button>
+      </div>
     </div>
   );
 }

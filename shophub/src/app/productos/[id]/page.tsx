@@ -17,6 +17,7 @@ export default function ProductDetailPage({
 }: ProductDetailPageProps) {
   const [product, setProduct] = useState<Product | null>(null);
   const { addToCart } = useCart();
+  const { quitarFromCart } = useCart();
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -75,6 +76,12 @@ export default function ProductDetailPage({
           className="mt-4 rounded bg-black px-4 py-2 text-white"
         >
           Agregar al carrito
+        </button>
+        <button
+            onClick={() => quitarFromCart(product.id)}
+            className="ml-2 mt-4 rounded bg-red-500 px-4 py-2 text-white"
+        >
+          Quitar del carrito
         </button>
       </div>
     </main>
