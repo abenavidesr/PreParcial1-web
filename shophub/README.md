@@ -45,3 +45,7 @@ Para cambiar el modelo de datos en el CartContext respecto al preparcial, lo que
 ### Punto 2 Calculo de totales
 
 Para el calculo de totales solo se hizo un reduce donde se creo una variable total, y por cada producto en el carrito, se multiplico el precio por el atributo que se creo de quantityCart. 
+
+## Punto 3 Formulario
+
+Para el checkout lo que se hizo fue crear un formulario donde se piden los datos del nombre, correo y metodo de pago. Tambien se agregaron validaciones para que el nombre y el correo sean validos, y para que el usuario tenga que aceptar los terminos antes de poder realizar la compra. Finalmente, cuando se envia el formulario se simula el procesamiento del pago, se vacia el carrito y se muestra un mensaje indicando que la compra fue completada. No alcance a hacer lo de que el carrito se actualizara y se mostrara.
